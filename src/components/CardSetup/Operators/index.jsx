@@ -1,4 +1,5 @@
 //import { useState } from "react";
+import PropTypes from 'prop-types'
 import { HStack, useRadioGroup } from "@chakra-ui/react";
 import RadioCard from "../RadioCard";
 
@@ -28,3 +29,7 @@ function Operators({ setOperator }) {
 }
 
 export default Operators;
+
+Operators.propTypes = {
+  setOperator : PropTypes.string.isRequired
+}

@@ -4,14 +4,15 @@ import Factors from "./Factors";
 
 function CardSetup() {
   const [operator, setOperator] = useState("x");
-  //   const [lowerFactors, setLowerFactors] = useState([]);
-  //   const [upperFactors, setUpperFactors] = useState([]);
+  const [lowerFactors, setLowerFactors] = useState([]);
+   const [upperFactors, setUpperFactors] = useState([]);
   console.log("The current operator is, ", operator);
+  console.log("The upper factors are, ", upperFactors);
 
   return (
     <>
       <Operators setOperator={setOperator} />
-      <Factors />
+      <Factors setUpperFactors={setUpperFactors}/>
       <Factors />
     </>
   );

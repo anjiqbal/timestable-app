@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import {
   useCheckboxGroup,
   useCheckbox,
@@ -7,7 +8,7 @@ import {
   SimpleGrid,
 } from "@chakra-ui/react";
 
-function Factors() {
+function Factors({setUpperFactors}) {
   function CustomCheckbox(props) {
     const { state, getCheckboxProps, getInputProps, getLabelProps, htmlProps } =
       useCheckbox(props);
@@ -51,10 +52,11 @@ function Factors() {
   const { value, getCheckboxProps } = useCheckboxGroup({
     defaultValue: ["2"],
   });
-
+  
+console.log(value);
   return (
     <div>
-      <Text>The selected checkboxes are: {value.sort().join(" and ")}</Text>
+      <Text>The selected checkboxes are: {value.sort().join(" , ")}</Text>
       <SimpleGrid columns={3} spacing={10}>
         <CustomCheckbox {...getCheckboxProps({ value: "1" })} />
         <CustomCheckbox {...getCheckboxProps({ value: "2" })} />
@@ -74,3 +76,6 @@ function Factors() {
 }
 
 export default Factors;
+Factors.propTypes = {
+  setUpperFactors : PropTypes.func 
+}
