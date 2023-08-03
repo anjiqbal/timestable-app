@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
 import {
   useCheckboxGroup,
   useCheckbox,
@@ -8,7 +8,7 @@ import {
   SimpleGrid,
 } from "@chakra-ui/react";
 
-function Factors({setUpperFactors}) {
+function LowerFactors({ setLowerFactors }) {
   function CustomCheckbox(props) {
     const { state, getCheckboxProps, getInputProps, getLabelProps, htmlProps } =
       useCheckbox(props);
@@ -29,18 +29,15 @@ function Factors({setUpperFactors}) {
         cursor="pointer"
         transition="background-color 0.3s, border-color 0.3s"
         {...htmlProps}
-      boxShadow={state.isChecked ? "outline" : "none"}
-       
+        boxShadow={state.isChecked ? "outline" : "none"}
       >
         <input {...getInputProps()} hidden />
         <Flex
           alignItems="center"
           justifyContent="center"
-       
-        
           {...getCheckboxProps()}
         >
-          {state.isChecked  }
+          {state.isChecked}
         </Flex>
         <Text color={state.isChecked ? "white" : "black"} {...getLabelProps()}>
           {props.value}
@@ -52,8 +49,8 @@ function Factors({setUpperFactors}) {
   const { value, getCheckboxProps } = useCheckboxGroup({
     defaultValue: ["2"],
   });
-  
-console.log(value);
+
+  setLowerFactors(value);
   return (
     <div>
       <Text>The selected checkboxes are: {value.sort().join(" , ")}</Text>
@@ -75,7 +72,7 @@ console.log(value);
   );
 }
 
-export default Factors;
-Factors.propTypes = {
-  setUpperFactors : PropTypes.func 
-}
+export default LowerFactors;
+LowerFactors.propTypes = {
+  setLowerFactors: PropTypes.func,
+};
